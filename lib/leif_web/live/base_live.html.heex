@@ -1,6 +1,9 @@
 <%= for {key, %{metas: [p|_]}} <- @people do %>
 <div id={"person-#{key}"} class="person">
     <div class="initials"><%= p.initials %></div>
+    <%= if p.latest != "" do %>
+        <div class="emoji" id="person-#{key}-#{p.latest}"><%= p.latest %></div>
+    <% end %>
     <%= if p.picture do %>
         <img src={"/#{p.picture}"} />
     <% end %>

@@ -50,7 +50,8 @@ defmodule Leif.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:telegram, github: "visciang/telegram", tag: "0.21.0"},
-      {:hackney, "~> 1.18"}
+      {:hackney, "~> 1.18"},
+      {:exmoji, "~> 0.3.0"}
     ]
   end
 

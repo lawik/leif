@@ -38,6 +38,12 @@ defmodule Leif.Bot do
     second = String.at(update["message"]["chat"]["last_name"] || "?", 0)
     initials = first <> second
 
+    emoji =
+      text
+      |> Exmoji.Scanner.scan()
+      |> Enum.map(&Exmoji.EmojiChar.render/1)
+      |> Enum.join()
+
     if state.new? do
       Telegram.Api.request(token, "sendMessage", chat_id: chat_id, text: "Welcome!")
 
@@ -46,7 +52,7 @@ defmodule Leif.Bot do
           online_at: inspect(System.system_time(:second)),
           initials: initials,
           user_id: user_info["id"],
-          latest: text,
+          latest: emoji,
           picture: path
         })
     else
@@ -54,7 +60,7 @@ defmodule Leif.Bot do
         online_at: inspect(System.system_time(:second)),
         initials: initials,
         user_id: user_info["id"],
-        latest: text,
+        latest: emoji,
         picture: path
       })
     end

@@ -18,13 +18,33 @@
   left: 8px;
 }
 
-.initials {
+.initials,
+.emoji {
   width: 64px;
   font-size: 20px;
   color: white;
   position: absolute;
   text-align: center;
   z-index: 2;
+}
+
+.emoji {
+  height: 64px;
+  line-height: 64px;
+  font-size: 32px;
+  z-index: 3;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+
+  to {
+    opacity: 0;
+  }
+
 }
 
 .person img {
