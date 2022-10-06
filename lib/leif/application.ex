@@ -8,6 +8,7 @@ defmodule Leif.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Telegram.Poller, bots: [{Leif.Bot, token: System.get_env("BOT_TOKEN"), max_bot_concurrency: 1000}]},
       # Start the Ecto repository
       Leif.Repo,
       # Start the Telemetry supervisor

@@ -35,4 +35,5 @@ npm-debug.log
 # Database files
 *.db
 *.db-*
-
+photos
+env.sh

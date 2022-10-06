@@ -17,7 +17,7 @@ defmodule LeifWeb.Router do
   scope "/", LeifWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", BaseLive
   end
 
   # Other scopes may use custom stacks.

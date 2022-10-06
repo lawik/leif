@@ -1,0 +1,8 @@
+<%= for {key, %{metas: [p|_]}} <- @people do %>
+<div id={"person-#{key}"} class="person">
+    <div class="initials"><%= p.initials %></div>
+    <%= if p.picture do %>
+        <img src={"/#{p.picture}"} />
+    <% end %>
+</div>
+<% end %>
